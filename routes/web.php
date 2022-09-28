@@ -14,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('index');
+});
+
+Route::post('/faq-post', 'Main\IndexController@post')->name('faq-form');
+
+Route::post('/answer-faq-post', 'Admin\Main\IndexController@answer')->name('answer-faq-form');
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('admin');
+    });
 });
 
 Auth::routes();
