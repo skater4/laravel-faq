@@ -1,9 +1,12 @@
 ## Тестовое задание на вакансию PHP Разработчик
 
-Для развертывания проекта выполните команду
+Для развертывания проекта выполните следующие команды
 
 ```shell
 git clone git@github.com:skater4/laravel-faq.git && cd laravel-faq/docker && docker-compose up --build
+```
+```
+docker-compose exec apache bash -c 'cd /var/www/html && cp .env.example .env && php artisan migrate && composer install'
 ```
 
 Проект будет доступен по адресу http://127.0.0.1
