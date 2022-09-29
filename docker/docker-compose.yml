@@ -4,15 +4,13 @@ services:
         build:
             context: ./
             dockerfile: Dockerfile
-            args:
-                user: essana3 # your username on your machine, you can get it by running echo $USER
-                uid: 1000
         restart: always
         ports:
             - 80:80
         volumes:
             - ../:/var/www/html
             - ./vhost.conf:/etc/apache2/sites-enabled/000-default.conf
+        command: sh -c "composer install && php artisan key:generate && php artisan migrate"
     db:
         container_name: laravel-mysql
         image: mysql:latest
