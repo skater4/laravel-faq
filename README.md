@@ -7,4 +7,5 @@ git clone git@github.com:skater4/laravel-faq.git && cd laravel-faq && docker-com
 ```
 
 Проект будет доступен по адресу http://127.0.0.1
+
 PHPMyAdmin по адресу http://127.0.0.1:8080
